@@ -1,0 +1,55 @@
+<html>
+<head>
+    <title>Plants Nursery</title>
+    <link rel="stylesheet" type="text/css" href="Login.css">
+</head>
+<body>
+      <!--LOGIN-->
+<div class="login-container">
+    <h2>Login</h2>
+    <form id="loginForm" onsubmit="return validateForm()">
+        <div class="input-group">
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" placeholder="Enter your email">
+        </div>
+        <div class="input-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password">
+        </div>
+        <button type="submit">Login</button>
+    </form>
+</div>
+<script>
+    function validateForm() {
+    // Get form values
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+
+    // Regular expression for email validation
+    var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    // Check if email or password is empty
+    if (email === "" || password === "") {
+        alert("Both email and password are required.");
+        return false;
+    }
+
+    // Check if email is valid
+    if (!emailPattern.test(email)) {
+        alert("Please enter a valid email address.");
+        return false;
+    }
+
+    // Check if password meets the minimum length requirement
+    if (password.length < 6) {
+        alert("Password must be at least 6 characters long.");
+        return false;
+    }
+
+    // Form is valid
+    alert("Login successful!");
+    return true;
+}
+</script>
+</body>
+</html>
